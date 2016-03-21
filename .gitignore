@@ -2,4 +2,5 @@ database
 www
 redis-data
 install.sh
+.DS_Store
 

@@ -5,14 +5,14 @@ front:
   volumes_from:
     - www
     - sites
-  links:  
+  links:
     - mysql:mysql
     - redis:predis
 
 www:
   image: tianon/true
   volumes:
-    - ./www:/var/www
+    - ./www:/var/www/htdocs/localhost
 
 sites:
   image: tianon/true
@@ -26,7 +26,7 @@ mysql:
   volumes:
     - ./database:/var/lib/mysql
 
-composer:  
+composer:
    image: spiralout/dcomposer
    volumes_from:
      - www
@@ -39,9 +39,9 @@ artisan:
       - mysql:mysql
       - redis:predis
    expose:
-    - "3306"  
+    - "3306"
 
-nodejs:  
+nodejs:
   image: spiralout/dnodejs
   volumes_from:
      - www
@@ -53,9 +53,7 @@ redis:
    ports:
      - "6379"
 
-
 redis-data:
   image: tianon/true
   volumes:
     - ./redis-data:/data
-
