@@ -1,5 +1,11 @@
 #!/bin/bash
-shopt -s expand_aliases
+
+if [ -n "$ZSH_VERSION" ]; then
+   setopt aliases
+else
+   shopt -s expand_aliases
+fi
+
 alias dbuild='docker-compose build'
 alias dup='docker-compose up -d'
 alias dstop='docker-compose stop'
@@ -16,3 +22,4 @@ alias dpsa='docker ps -a'
 alias dstats='docker stats $(docker ps -q)'
 alias dkill='docker stop $(docker ps -q)'
 alias drm='docker rm $(docker ps -a -q)'
+alias dsh='docker exec -it dockervel_front_1 /bin/sh'
