@@ -39,12 +39,12 @@ Now you have a registration system active. Go to `localhost` and register a new 
 * gulp install: `dnodejs gulp install`
 * gulp watch: `dulp-watch`
 Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
-* To access the webserver, use `docker exec -it <CONTAINER_ID> /bin/sh`
+* For shell access to the web server, use `docker exec -it <CONTAINER_ID> /bin/sh`
 
 
-## aliases
+## Aliases
 aliases.sh contains shortcuts to common commands. 
-run dot space dot /aliashes.sh to activate aliases for this terminal session.
+run dot space dot /aliases.sh to activate aliases for this terminal session.
 ```
 $ . ./aliases.sh
 ```
@@ -57,7 +57,7 @@ In the following document it is supposed that you have executed `aliashes.sh` as
 * create new laravel project: `dcomposer-create`
 * type `localhost` in your browser and you see the Laravel welcome screen
 
-### Fix permitions
+### Fix permissions
 since containers have different user in them, you have to change the permisions in www/ folder to be able to write. type:
 ```
 $ dpermit
@@ -66,12 +66,9 @@ it will simply `chmod -R 777 www`
 Remember to run `dpermit` after each time the `www` folder has a new file.
 
 ### Configure Laravel for mysql
-change `DB_HOST` in `.env` to point to `mysql`. This is the name that it is used in docker-compose.yml (`link: -mysql:mysql`)
+Copy the .env file to Laravel
 ```
-DB_HOST=mysql
-DB_DATABASE=homestead
-DB_USERNAME=homestead
-DB_PASSWORD=secret
+cp .env www.env
 ```
 ### Configure Laravel for redis
 change `REDIS_HOST` in `.env` to point to `predis`. This is the name that it is used in docker-compose.yml (`link: -redis:predis`).
