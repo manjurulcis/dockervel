@@ -11,7 +11,7 @@
 
 ###Containers included 
 * Nginx 1.8.0 & PHP 5.6 running in Alpine
-* MariaDB 5.5 running in Alpine
+* Offical MySQL container
 * Redis running in Alpine
 * Composer PHP running in Alpine.
 * Artisan running in Debian (alpine is missing some PHP packages) 
@@ -76,7 +76,6 @@ change `REDIS_HOST` in `.env` to point to `predis`. This is the name that it is 
 REDIS_HOST=predis
 REDIS_PASSWORD=null
 REDIS_PORT=6379
-
 ```
 in Laravel 5.2 there are some issues with `redis` namespace, so to avoid conflicts `predis` is used.
 Also you have to change /config/app.php, and replace:

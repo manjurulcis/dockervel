@@ -12,7 +12,7 @@ front:
 www:
   image: tianon/true
   volumes:
-    - ./www:/var/www/htdocs/localhost
+    - ./www:/var/www
 
 sites:
   image: tianon/true
@@ -22,14 +22,14 @@ sites:
 mysql:
   image: mysql
   ports:
-    - "3306:3306"
+    - "3306"
   environment:
     MYSQL_ROOT_PASSWORD: password
     MYSQL_USER: user
     MYSQL_PASSWORD: password
     MYSQL_DATABASE: project_db
-  volumes:
-    - ./database:/var/lib/mysql
+#  volumes:
+#    - ./database:/var/lib/mysql
 
 composer:
    image: spiralout/dcomposer
