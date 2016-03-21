@@ -23,7 +23,7 @@
 
 Make sure you have `docker` and `docker-compose` installed. See [here for installing them](http://www.spiralout.eu/2015/12/docker-installation-in-linux-mint-and.html)
 
-* clone this repo: `git clone https://github.com/SpiralOutDotEu/dockervel.git`
+* clone this repo: `git clone https://github.com/Webscope/dockervel.git`
 * cd in: `cd dockervel`
 * run as su: `su`
 * add aliases: `. ./aliases.sh`
@@ -31,7 +31,7 @@ Make sure you have `docker` and `docker-compose` installed. See [here for instal
 and you have a server running! Hit `localhost` in your browser and you will see nginx fault message becasuse there is no `www/public/index.php`.
 * create new Laravel project: `dcomposer-create`
 * fix permissions: `dpermit`
-* change .env: [see below for options](https://github.com/SpiralOutDotEu/dockervel/blob/master/README.md#configure-laravel-for-mysql)
+* change .env: [see below for options](https://github.com/Webscope/dockervel/blob/master/README.md#configure-laravel-for-mysql)
 * run artisan commands: `dartisan make:auth`
 * fix permissions: `dpermit`
 Now you have a registration system active. Go to `localhost` and register a new user to see that db's are running ok.
@@ -39,6 +39,7 @@ Now you have a registration system active. Go to `localhost` and register a new 
 * gulp install: `dnodejs gulp install`
 * gulp watch: `dulp-watch`
 Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
+* To access the webserver, use `docker exec -it <CONTAINER_ID> /bin/sh`
 
 
 ## aliases
@@ -157,8 +158,4 @@ Thanx to:
 * [Dylan Lindgren](https://github.com/dylanlindgren)
 * [10Startups](https://github.com/tenstartups)
 * [Tom Sowerby](https://medium.com/@tomsowerby)
-
-
-
-
 
