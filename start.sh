@@ -11,8 +11,12 @@ docker-compose up -d
 # Set the hosts file
 echo 'Setting the hosts file'
 VIRTUAL_HOST_TMP=$(grep 'VIRTUAL_HOST=' docker-compose.yml | tail -n1 | awk '{ print $2}')
-VIRTUAL_HOST=${VIRTUAL_HOST_TMP/VIRTUAL_HOST=/}
-IP_ADDRESS=$(docker-machine ip)
+VIRTUAL_HOST=$(echo $VIRTUAL_HOST_TMP | sed 's/VIRTUAL_HOST=//g')
+if docker-machine ip ; then
+    IP_ADDRESS=$(docker-machine ip)
+else
+    IP_ADDRESS=127.0.0.1
+fi
 
 if grep -q "$IP_ADDRESS $VIRTUAL_HOST" /etc/hosts; then
     echo "Virtual Host already in hosts file"
