@@ -1,7 +1,7 @@
 front:
   image: dydx/alpine-nginx-phpfpm
-  ports:
-    - "80:80"
+  environment:
+    - VIRTUAL_HOST=laravel.docker.local
   volumes_from:
     - www
     - sites
@@ -28,8 +28,6 @@ mysql:
     MYSQL_USER: user
     MYSQL_PASSWORD: password
     MYSQL_DATABASE: project_db
-#  volumes:
-#    - ./database:/var/lib/mysql
 
 composer:
    image: spiralout/dcomposer
