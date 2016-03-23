@@ -6,6 +6,7 @@ else
    shopt -s expand_aliases
 fi
 
+alias dstart='./scripts/start.sh'
 alias dbuild='docker-compose build'
 alias dup='docker-compose up -d'
 alias dstop='docker-compose stop'
