@@ -46,7 +46,7 @@ Now there is one container running `gulp watch` and monitors changes on files ac
 aliases.sh contains shortcuts to common commands. 
 run dot space dot /aliases.sh to activate aliases for this terminal session.
 ```
-$ . ./aliases.sh
+$ . ./scripts/aliases.sh
 ```
 and now for this terminal session you have aliases like `dartisan`, `dcomposer`, `dnodejs`, `dup`, `dstop`. 
 

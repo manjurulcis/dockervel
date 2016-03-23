@@ -1,5 +1,5 @@
 front:
-  image: dydx/alpine-nginx-phpfpm
+  image: webscope/nginx-php-fpm
   environment:
     - VIRTUAL_HOST=laravel.docker.local
   volumes_from:
@@ -28,11 +28,6 @@ mysql:
     MYSQL_USER: user
     MYSQL_PASSWORD: password
     MYSQL_DATABASE: project_db
-
-composer:
-   image: spiralout/dcomposer
-   volumes_from:
-     - www
 
 artisan:
    image: spiralout/dartisan
