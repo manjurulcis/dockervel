@@ -8,50 +8,51 @@
 * Run gulp watch easy as `dgulp-watch`
 * Containers managed with docker-compose
 * Lightweight as it is mostly based in Linux Alpine base image of 5MB.
+* Runs behind an nginx reverse proxy so multiple sites/containers can be running at once
 
-###Containers included 
-* Nginx 1.8.0 & PHP 5.6 running in Alpine
+###Containers included
+* Nginx 1.8.1 & PHP 5.5.9-1ubuntu4.14 & Composer running in Ubuntu
 * Offical MySQL container
 * Redis running in Alpine
-* Composer PHP running in Alpine.
-* Artisan running in Debian (alpine is missing some PHP packages) 
+* Artisan running in Debian (Alpine is missing some PHP packages)
 * NodeJS with gulp, grunt and bower -g installed in official node:4.2.2-slim base image
-* Volumes mounted as containers 
+* Volumes mounted as containers
 
 
 ## Usage
 
-Make sure you have `docker` and `docker-compose` installed. See [here for installing them](http://www.spiralout.eu/2015/12/docker-installation-in-linux-mint-and.html)
+Make sure you have `docker` and `docker-compose` installed.
 
 * clone this repo: `git clone https://github.com/Webscope/dockervel.git`
 * cd in: `cd dockervel`
 * run as su: `su`
-* add aliases: `. ./aliases.sh`
-* run: `dup` 
-and you have a server running! Hit `localhost` in your browser and you will see nginx fault message becasuse there is no `www/public/index.php`.
+* add aliases: `. ./scripts/aliases.sh`
+* optionally change the VIRTUAL_HOST in docker-compose.yml
+* run `dstart`
+and you have a server running! Hit [http://laravel.docker.local](http://laravel.docker.local) (or the VIRTUAL_HOST you defined in docker-compose.yml) in your browser and you will see nginx fault message because there is no `www/public/index.php`.
 * create new Laravel project: `dcomposer-create`
 * fix permissions: `dpermit`
-* change .env: [see below for options](https://github.com/Webscope/dockervel/blob/master/README.md#configure-laravel-for-mysql)
+* copy the .env file `cp .env www/.env`
 * run artisan commands: `dartisan make:auth`
 * fix permissions: `dpermit`
-Now you have a registration system active. Go to `localhost` and register a new user to see that db's are running ok.
+Now you have a registration system active. Go to [http://laravel.docker.local](http://laravel.docker.local) (or the VIRTUAL_HOST you defined in docker-compose.yml) and register a new user to see that db's are running ok.
 * npm install: `dnodejs npm install`
 * gulp install: `dnodejs gulp install`
 * gulp watch: `dulp-watch`
 Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
-* For shell access to the web server, use `docker exec -it <CONTAINER_ID> /bin/sh`
+* For shell access to the web server, use `dsh`
 
 
 ## Aliases
-aliases.sh contains shortcuts to common commands. 
-run dot space dot /aliases.sh to activate aliases for this terminal session.
+aliases.sh contains shortcuts to common commands.
+run dot space dot /scripts/aliases.sh to activate aliases for this terminal session.
 ```
-$ . ./aliases.sh
+$ . ./scripts/aliases.sh
 ```
-and now for this terminal session you have aliases like `dartisan`, `dcomposer`, `dnodejs`, `dup`, `dstop`. 
+and now for this terminal session you have aliases like `dartisan`, `dcomposer`, `dnodejs`, `dup`, `dstop`.
 
 If you don't want to work with aliases, open the script and see the coressponding commands next to each alias.
-In the following document it is supposed that you have executed `aliashes.sh` as `su` and you have the aliases active. 
+In the following document it is supposed that you have executed `aliases.sh` as `su` and you have the aliases active.
 
 ### Create new Laravel Project
 * create new laravel project: `dcomposer-create`
@@ -68,7 +69,7 @@ Remember to run `dpermit` after each time the `www` folder has a new file.
 ### Configure Laravel for mysql
 Copy the .env file to Laravel
 ```
-cp .env www.env
+cp .env www/.env
 ```
 ### Configure Laravel for redis
 change `REDIS_HOST` in `.env` to point to `predis`. This is the name that it is used in docker-compose.yml (`link: -redis:predis`).
@@ -88,9 +89,9 @@ with
 ```
 Use it like:
 ```
-$redis= LaravelRedis::connection();
+$redis = LaravelRedis::connection();
 $redis->set('name', 'myname');
-$redis->get('name'); 
+$redis->get('name');
 ```
 
 ### Running Artisan commands
@@ -149,9 +150,4 @@ The base memory usage for the containers of the server running is about 110 MB.
 ```
 
 ## Credits
-Thanx to:
-* [Josh Sandlin](https://github.com/dydx)
-* [Dylan Lindgren](https://github.com/dylanlindgren)
-* [10Startups](https://github.com/tenstartups)
-* [Tom Sowerby](https://medium.com/@tomsowerby)
-
+Based on [https://github.com/SpiralOutDotEu/dockervel](https://github.com/SpiralOutDotEu/dockervel)
