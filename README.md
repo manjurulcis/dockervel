@@ -66,7 +66,7 @@ $ dpermit
 it will simply `chmod -R 777 www`
 Remember to run `dpermit` after each time the `www` folder has a new file.
 
-### Configure Laravel for mysql
+### Configure Laravel for MySQL
 Copy the .env file to Laravel
 ```
 cp .env www/.env
