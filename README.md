@@ -54,6 +54,50 @@ and now for this terminal session you have aliases like `dartisan`, `dcomposer`,
 If you don't want to work with aliases, open the script and see the coressponding commands next to each alias.
 In the following document it is supposed that you have executed `aliases.sh` as `su` and you have the aliases active.
 
+`dstart` start the Dockervel containers
+
+`dbuild` runs docker-compose build
+
+`dup` runs docker-compose up -d
+
+`dstop` stop the Dockervel containers
+
+`dstopall` stop all Docker containers
+
+`drun` runs docker-compose run -d --service-ports front
+
+`dcomposer` use composer, accepts commands i.e. `dcomposer install`
+
+`dcomposer-create` shortcut for creating a new Laravel project
+
+`dpermit` fixes directory permissions
+
+`dartisan` use artisan, accepts commands, i.e. `dartisan make:auth`
+
+`dnodejs` use nodejs, accepts arguments
+
+`dgulp` use gulp, accepts arguments
+
+`dgulp-watch` shortcut for gulp watch
+
+`dps` lists all running Docker containers
+
+`dpsa` lists all Docker containers
+
+`dstats` 'docker stats $(docker ps -q)'
+
+`dkill` stops Docker containers
+
+`drmall` removes all Docker containers
+
+`dsh` ssh into the web container
+
+`ddbdrop` drop the database
+
+`ddbcreate` creates the database
+
+`ddbimport` import a database, requires the database export file as an argument
+
 ### Create new Laravel Project
 * create new laravel project: `dcomposer-create`
 * type `localhost` in your browser and you see the Laravel welcome screen
