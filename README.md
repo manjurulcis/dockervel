@@ -92,11 +92,14 @@ In the following document it is supposed that you have executed `aliases.sh` as 
 
 `dsh` ssh into the web container
 
+`dmysql` opens the mysql command line
+
 `ddbdrop` drop the database
 
 `ddbcreate` creates the database
 
 `ddbimport` import a database, requires the database export file as an argument
+
 
 ### Create new Laravel Project
 * create new laravel project: `dcomposer-create`
