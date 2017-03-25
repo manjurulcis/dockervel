@@ -35,10 +35,11 @@ and you have a server running! Hit [http://laravel.docker.local](http://laravel.
 * copy the .env file `cp .env www/.env`
 * run artisan commands: `dartisan make:auth`
 * fix permissions: `dpermit`
+* run migrations: `dartisan migrate`
 Now you have a registration system active. Go to [http://laravel.docker.local](http://laravel.docker.local) (or the VIRTUAL_HOST you defined in docker-compose.yml) and register a new user to see that db's are running ok.
 * npm install: `dnodejs npm install`
 * gulp install: `dnodejs gulp install`
-* gulp watch: `dulp-watch`
+* gulp watch: `dgulp-watch`
 Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
 * For shell access to the web server, use `dsh`
 
