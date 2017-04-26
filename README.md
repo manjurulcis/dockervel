@@ -1,5 +1,5 @@
-#Dockervel
-##A complete Laravel development environment in Docker Containers:
+# Dockervel
+## A complete Laravel development environment in Docker Containers:
 
 * Bring Up a Laravel development environment with a single command easy as `dup`
 * Execute Artisan commands easy as  `dartisan make:auth`
@@ -10,7 +10,7 @@
 * Lightweight as it is mostly based in Linux Alpine base image of 5MB.
 * Runs behind an nginx reverse proxy so multiple sites/containers can be running at once
 
-###Containers included
+### Containers included
 * Nginx 1.8.1 & PHP 5.5.9-1ubuntu4.14 & Composer running in Ubuntu
 * Offical MySQL container
 * Redis running in Alpine
